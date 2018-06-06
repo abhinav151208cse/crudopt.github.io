@@ -1,0 +1,13 @@
+<div *ngIf="items?.length > 0; else noItems">
+  <ul *ngFor="let item of items" class="collection">
+    <li (dblclick)="deleteItem($event, item)" class="collection-item"><strong>{{item.title}}:</strong>{{item.description}} <a href="#" class="secondary-content"><i (click)="editItem($event, item)" class="fa fa-pencil"></i></a><div *ngIf="editState && itemToEdit.id == item.id">Test</div>
+    
+    
+    </li>
+
+  </ul>
+</div>
+<ng-template #noItems>
+  <hr>
+  <h5>There Are no Items to List</h5>
+</ng-template>
